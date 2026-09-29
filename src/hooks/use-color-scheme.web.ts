@@ -8,6 +8,9 @@ export function useColorScheme() {
   const [hasHydrated, setHasHydrated] = useState(false);
 
   useEffect(() => {
+    // Deliberate hydration guard: static web rendering emits 'light' on the server,
+    // so the real scheme must be applied only after mount (rule exception is intended).
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- post-hydration update
     setHasHydrated(true);
   }, []);
 
