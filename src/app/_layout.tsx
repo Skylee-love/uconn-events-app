@@ -3,6 +3,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { SavedEventsProvider } from '@/hooks/use-saved-events';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -11,10 +12,12 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AnimatedSplashOverlay />
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="event/[id]" options={{ title: 'Event Details' }} />
-      </Stack>
+      <SavedEventsProvider>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="event/[id]" options={{ headerShown: false }} />
+        </Stack>
+      </SavedEventsProvider>
     </ThemeProvider>
   );
 }

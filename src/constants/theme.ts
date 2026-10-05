@@ -9,21 +9,43 @@ import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-    accent: '#3c87f7',
+    text: '#0F172A',
+    background: '#F6F7FB',
+    /** Card / surface color. */
+    backgroundElement: '#FFFFFF',
+    backgroundSelected: '#E8EAF2',
+    textSecondary: '#64748B',
+    accent: '#4F46E5',
+    card: '#FFFFFF',
+    border: '#E5E7EB',
+    primary: '#4F46E5',
+    primaryMuted: '#EEF2FF',
+    onPrimary: '#FFFFFF',
+    danger: '#EF4444',
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-    accent: '#3c87f7',
+    text: '#F1F5F9',
+    background: '#0B0D14',
+    backgroundElement: '#161A23',
+    backgroundSelected: '#232838',
+    textSecondary: '#94A3B8',
+    accent: '#818CF8',
+    card: '#161A23',
+    border: '#252B3A',
+    primary: '#4F46E5',
+    primaryMuted: '#1E1B4B',
+    onPrimary: '#FFFFFF',
+    danger: '#F87171',
   },
+} as const;
+
+/** Soft card shadow, works on iOS, Android and web. */
+export const CardShadow = {
+  shadowColor: '#0F172A',
+  shadowOffset: { width: 0, height: 4 },
+  shadowOpacity: 0.08,
+  shadowRadius: 12,
+  elevation: 3,
 } as const;
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
